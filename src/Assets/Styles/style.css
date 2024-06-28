@@ -11,6 +11,10 @@
     color: white;
     font-size: x-large;
 }
+.navlink{
+    color: var(--orange);
+    font-weight: bold;
+}
 
 /* Style pour le footer */
 .footer{
@@ -24,6 +28,11 @@
 .colLeft{
     color: white;
     overflow-y: hidden;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+.colLeft::-webkit-scrollbar {
+    display: none;
 }
 .colLeft aside {
     background-color: var(--orange);
@@ -31,6 +40,9 @@
     overflow-y: auto;
     scrollbar-width: none; 
     -ms-overflow-style: none;  
+}
+.colLeft aside::-webkit-scrollbar {
+    display: none;
 }
 .colLeft .title{
     position: fixed;
@@ -42,16 +54,13 @@
 .colLeft .liste{
     margin-top: 60px;
 }
-
-.colLeft aside::-webkit-scrollbar {
-    display: none;
-}
 .colLeft .phone {
+    z-index: 10;
     transition: transform 0.5s ease-out;
 }
 .colLeft .phone {
     display: none;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 50px);
     position: absolute;
     top: 50;
     width: 250px;
@@ -82,8 +91,11 @@
     .colLeft .phone {
         display: block;
     }
+    .colLeft .title{
+        position: fixed;
+        width: 100%;
+    }
 }
-
 @keyframes slideIn {
     from {
         transform: translateX(-100%);
@@ -91,8 +103,7 @@
     to {
         transform: translateX(0);
     }
-}
-  
+}  
 @keyframes slideOut {
     from {
         transform: translateX(0);
@@ -101,7 +112,6 @@
         transform: translateX(-100%);
     }
 }
-  
 .slide-in {
     animation: slideIn 0.5s forwards;
 }
@@ -110,11 +120,15 @@
     animation: slideOut 0.5s forwards;
 }
 
+/* Style pour la colone de droite */
 .colRight{
     color: black;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 } 
-
-/* Style pour la colone de droite */
+.colRight::-webkit-scrollbar {
+    display: none;
+}
 .cardUser{
     display: flex;
     align-items: end;
@@ -131,7 +145,8 @@
 .cardUser img{
     height: 70px; 
     width: 70px;
-    border-radius: 5px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 .cardUser h3{
     color: white;
@@ -141,6 +156,21 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 20px;
+    max-width: 500px;
+}
+.cardDetail .description{
+    text-align: justify;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+.cardDetail .description::-webkit-scrollbar {
+    display: none;
 }
 .cardDetail h3{
     color: var(--orange);
@@ -149,4 +179,63 @@
 .cardDetail img{
     height: auto;
     max-width: 300px;
+    border-radius: 5px;
+}
+
+@media (max-width:990px) {
+    .cardDetail{
+        max-width: 300px;
+    }
+    .cardDetail img{
+        max-width: 280px;
+    }
+    .cardDetail .linkGit{
+        width: 250px;
+        overflow-x: auto;
+        margin: 0 10px;
+    }
+}
+
+/* style pour les buttons */
+.btn{
+    transition: 0.3s;
+}
+.btn:hover{
+    transform: scale(1.03);
+}
+.btnOpen{
+    border: 1px solid var(--orange);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px;
+    transition: 0.3s;
+}
+.btnOpen:hover{
+    border: 1.5px solid white;
+    background-color: var(--orange);
+    color: white;
+    transform: scale(1.03);
+}
+
+/* Style pour le spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #09f;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+
+.box{
+    width: 100%;
 }

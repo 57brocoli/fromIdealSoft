@@ -6,9 +6,9 @@ function PageError() {
   return (
     <div>
         <h1>Oops!</h1>
-        <p>Sorry, an unexpected error has occurred.</p>
+        <p>Une erreur est survenu</p>
         <p>
-            <i>{error.statusText || error.message}</i>
+            Consulter la console pour déterminer l'erreur
         </p>
     </div>
   )
